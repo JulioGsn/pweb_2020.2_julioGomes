@@ -1,0 +1,81 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    overflow: hidden;
+}
+
+#main {
+    background: antiquewhite;
+    font-family: 'Noto Sans HK', sans-serif;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.info {
+    position: relative;
+    text-align: center;
+}
+
+.gitcat img {
+    width: 250px;
+    animation-name: move;
+    animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+    animation-duration: 3s;
+}
+
+@keyframes move {
+    0% {
+        transform: translateX(100px);
+    }
+    50% {
+        transform: rotate(180deg);
+    }
+}
+
+
+
+.my-name .first {
+    font-size: 7rem;
+    color: rgba(155, 89, 182,1.0);
+}
+
+.my-name .last {
+    font-size: 4rem;
+    color: rgba(142, 68, 173, .5);
+}
+
+@media screen and (max-width: 768px) {
+    .my-name .first {
+        font-size: 5rem;
+        display: inline-block;
+    }
+    
+    .my-name .last {
+        font-size: 2.5rem;
+        /* display: none; */
+    }
+}
+
+@media screen and (max-width: 428px) {
+    .my-name .first {
+        font-size: 3rem;
+        display: inline-block;
+    }
+    
+    .my-name .last {
+        font-size: 2rem;
+        /* display: none; */
+    }
+}
