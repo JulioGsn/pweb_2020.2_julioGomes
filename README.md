@@ -19,3 +19,7 @@ $ git clone https://github.com/JulioGsn/pweb_2020.2_julioGomes.git
 - `git pull` para baixar as alterações e branchs para o seu repositório local
 - `git push` para "empurrar" seus commits para o repositório remoto
 - para mais comandos legais, consulte a [documentação oficial do git](https://git-scm.com/)
+
+## Preview meuSite
+
+![Preview do meuSite](meuSite/img/site-preview.png)
