@@ -25,13 +25,13 @@
 
 		<h1>Formulário para cadastro de pessoas:</h1>
 		<form action="adicionadaComSucesso.html" method="post">
-			<p>Nome completo *: <input type="text" placeholder="Seu nome completo" required></p> 
-			</p>Data de nascimento *: <input type="text" placeholder="dd/mm/aaaa" required></p>
-			<p>e-Mail *: <input type="text" placeholder="nome@dominio.com" required>
+			<p>Nome completo *: <input type="text" name="nome" placeholder="Seu nome completo"></p> 
+			</p>Data de nascimento *: <input type="text" name="data-nascimento" placeholder="dd/mm/aaaa"></p>
+			<p>e-Mail *: <input type="text" name="email" placeholder="nome@dominio.com">
 			<p>Sexo*: </p>
-			<p><input type="radio" name="sexo" value="masculino" required>Masculino</p>
-			<p><input type="radio" name="sexo" value="feminino" required>Feminino</p>
-			<p><input type="radio" name="sexo" value="nao-informar" required>Não informar</p>
+			<p><input type="radio" name="sexo" value="masculino">Masculino</p>
+			<p><input type="radio" name="sexo" value="feminino">Feminino</p>
+			<p><input type="radio" name="sexo" value="nao-informar">Não informar</p>
 			<button class="button" type="reset">Limpar</button>
 			<button class="button" type="submit">Cadastrar!</button>
 		</form>
