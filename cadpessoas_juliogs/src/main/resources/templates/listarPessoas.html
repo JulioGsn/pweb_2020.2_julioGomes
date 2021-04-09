@@ -1,42 +1,43 @@
 <!DOCTYPE html>
 <html lang="pt_br">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta codigoSemana2="1569331148">
-    <link rel="stylesheet" href="css/style.css">
-    <title>PWeb - Júlio Gomes</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta codigoSemana2="1569331148">
+	<link rel="stylesheet" th:href="@{/css/style.css}">
+	<title>PWeb - Júlio Gomes</title>
 </head>
+
 <body>
 	<ul>
-        <li><a href="index.html">Início</a></li>
+		<li><a href="/">Início</a></li>
 		<hr>
-		<li><a href="noticias.html">Canais de notícias</a></li>
+		<li><a href="/adicionarPessoa">Adicionar pessoa</a></li>
+		<li><a href="/listarPessoas" class="active">Listar pessoas</a></li>
 		<hr>
-		<li><a href="adicionarPessoa.html">Adicionar pessoa</a></li>
-		<li><a href="listarPessoas.html" class="active">Listar pessoas</a></li>
-		<hr>
-		<li><a href="sobre.html">Sobre o site</a></li>
-		<li><a href="contato.html">Mande um e-Mail</a></li>
-    </ul>
+		<li><a href="/public/noticias.html">Canais de notícias</a></li>
+		<li><a href="/public/sobre.html">Sobre o site</a></li>
+		<li><a href="/public/contato.html">Mande um e-Mail</a></li>
+	</ul>
 
 	<div style="margin-left:25%;padding:1px 16px;height:1000px;">
 
-	<h1>Lista de pessoas cadastradas</h1>
-	<table>
-	  <tr>
-		<th>Nome completo</th>
-		<th>Data de Nascimento</th>
-		<th>e-Mail</th>
-		<th>Sexo</th>
-		<th>Editar</th>
-		<th>Remover</th>
-	  </tr>
-	  <tr th:each="pessoa: ${pessoas}">
-		  <td th:text="${pessoa.id}"></td>
-		<td th:text="${pessoa.nome}"></td>
-		<td th:text="${#temporals.format(pessoa.dataNascimento, 'dd/MM/yyyy')}"></td>
+		<h1>Lista de pessoas cadastradas</h1>
+		<table>
+			<tr>
+				<th>Nome completo</th>
+				<th>Data de Nascimento</th>
+				<th>e-Mail</th>
+				<th>Sexo</th>
+				<th>Editar</th>
+				<th>Remover</th>
+			</tr>
+			<tr th:each="pessoa: ${pessoas}">
+				<td th:text="${pessoa.id}"></td>
+				<td th:text="${pessoa.nome}"></td>
+				<td th:text="${#temporals.format(pessoa.dataNascimento, 'dd/MM/yyyy')}"></td>
 		<td><a th:href="'mailto:'+${pessoa.email}"th:text="${pessoa.email}"></a></td>
 		<td th:text="${pessoa.genero}"></td>
 		<td><a th:href="@{/editar/{id}(id=${pessoa.id})}">Editar</a></td>
