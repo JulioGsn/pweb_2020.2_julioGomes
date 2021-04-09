@@ -57,7 +57,7 @@ public class Pessoa implements Serializable {
 		return email;
 	}
 
-	public void setRmail(String email) {
+	public void setEmail(String email) {
 		this.email = email;
 	}
 

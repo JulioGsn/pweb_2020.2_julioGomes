@@ -25,14 +25,30 @@
 	<div style="margin-left:25%;padding:1px 16px;height:1000px;">
 
 		<h1>Formulário para cadastro de pessoas:</h1>
-		<form action="adicionadaComSucesso.html" method="post">
-			<p>Nome completo *: <input type="text" name="nome" placeholder="Seu nome completo"></p>
-			</p>Data de nascimento *: <input type="text" name="data-nascimento" placeholder="dd/mm/aaaa"></p>
-			<p>e-Mail *: <input type="text" name="email" placeholder="nome@dominio.com">
-			<p>Sexo*: </p>
-			<p><input type="radio" name="sexo" value="masculino">Masculino</p>
-			<p><input type="radio" name="sexo" value="feminino">Feminino</p>
-			<p><input type="radio" name="sexo" value="nao-informar">Não informar</p>
+		<form action="adicionadaComSucesso.html" method="POST" th:object="${pessoa}" th:action="@{/adicionarPessoa}">
+			<p>
+				Nome completo *: 
+				<input type="text" th:field="*{nome}" placeholder="Seu nome completo" required>
+			</p>
+			</p>
+				Data de nascimento *: 
+				<input type="text" th:field="*{data-nascimento}" placeholder="dd/mm/aaaa" required>
+			</p>
+			<p>
+				e-Mail *: 
+				<input type="text" th:field="*{email}" placeholder="nome@dominio.com" required>
+			<p>
+				Gênero*: 
+			</p>
+			<p>
+			<input type="radio" name="genero" th:field={*"genero"} value="masculino" required>Masculino
+			</p>
+			<p>
+				<input type="radio" name="genero" th:field={*"genero"} value="feminino" required>Feminino
+			</p>
+			<p>
+				<input type="radio" name="genero" th:field={*"genero"} value="nao-informar" required>Não informar
+			</p>
 			<button class="button" type="reset">Limpar</button>
 			<button class="button" type="submit">Cadastrar!</button>
 		</form>
