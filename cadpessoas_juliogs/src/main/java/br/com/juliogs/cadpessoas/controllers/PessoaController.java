@@ -3,6 +3,7 @@ package br.com.juliogs.cadpessoas.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -29,5 +30,13 @@ public class PessoaController {
 		ModelAndView mav = new ModelAndView("listarPessoas");
 		mav.addObject("pessoas", lista);
 		return mav;
+	}
+
+	@GetMapping("/remover/{id}")
+	public ModelAndView removerPessoa(@PathVariable long id) {
+		Pessoa aRemover = pessoaRepo.findById(id)
+			.orElseThrow(() -> new IllegalArgumentException("ID inválido:" + id)); 
+		pessoaRepo.delete(aRemover);
+		return new ModelAndView("redirect:/listarPessoas");
 	}
 }
