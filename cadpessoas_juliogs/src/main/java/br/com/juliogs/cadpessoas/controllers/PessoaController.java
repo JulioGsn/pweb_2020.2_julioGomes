@@ -38,6 +38,22 @@ public class PessoaController {
 		return "redirect:/listarPessoas";
 	}
 
+	@GetMapping("/editar/{id}")
+	public ModelAndView formEditarPessoa(@PathVariable("id") long id) {
+		Pessoa pessoa = pessoaRepo.findById(id)
+			.orElseThrow(() -> new IllegalArgumentException("ID inválido:" + id));
+		
+		ModelAndView modelAndView = new ModelAndView("editarPessoa");
+		modelAndView.addObject(pessoa);
+		return modelAndView;
+	}
+
+	@PostMapping("/editar/{id}")
+	public ModelAndView editarPessoa(@PathVariable("id") long id, Pessoa pessoa) {
+		this.pessoaRepo.save(pessoa);
+		return new ModelAndView("redirect:/listarPessoas");
+	}
+
 	@GetMapping("/listarPessoas")
 	public ModelAndView listarPessoas() {
 		List<Pessoa> lista = pessoaRepo.findAll();
