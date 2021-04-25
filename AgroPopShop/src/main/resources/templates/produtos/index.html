@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>produtos</h1>
+    <table class="table table-striped table-hover">
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Marca</th>
+            <th>Altura</th>
+            <th>Largura</th>
+            <th>Profundidade</th>
+            <th>Peso</th>
+            <th>Preço</th>
+            <th>Ações</th>
+        </tr>
+        <tr th:each="produto: ${produtos}">
+            <td th:text="${produto.id}"></td>
+            <td th:text="${produto.nome}"></td>
+            <td th:text="${produto.marca}"></td>
+            <td th:text="${produto.altura}"></td>
+            <td th:text="${produto.largura}"></td>
+            <td th:text="${produto.profundidade}"></td>
+            <td th:text="${produto.peso}"></td>
+            <td th:text="${produto.preco}"></td>
+
+            <td>
+                <a th:href="@{/produtos/editar/{id}(id=${produto.id})}">Editar</a>
+                <a th:href="@{/produtos/remover/{id}(id=${produto.id})}">Remover</a>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>
