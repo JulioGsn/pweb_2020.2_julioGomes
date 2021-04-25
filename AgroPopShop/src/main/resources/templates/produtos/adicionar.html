@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgroPopShop - Juliogs</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <h1>Hello, world! cadastro</h1>
+
+    <form class="form" method="POST" th:object="${produto}" th:action="@{/produtos/adicionar}">
+        <div class="form-group">
+            <label for="">Nome</label>
+            <input type="text" th:field="*{nome}" class="form-control" placeholder="Produto tal" required />
+            <label for="">Marca</label>
+            <input type="text" th:field="*{marca}" class="form-control" placeholder="sei lá" required />
+            <label for="">Altura</label>
+            <input type="text" th:field="*{altura}" class="form-control" placeholder="232.3cm" required />
+            <label for="">Largura</label>
+            <input type="text" th:field="*{largura}" class="form-control" placeholder="12.5cm" required />
+            <label for="">Profundidade</label>
+            <input type="text" th:field="*{profundidade}" class="form-control" placeholder="2cm" required />
+            <label for="">Peso</label>
+            <input type="text" th:field="*{peso}" class="form-control" placeholder="2cm" required />
+            <label for="">Preço</label>
+            <input type="text" th:field="*{preco}" class="form-control" placeholder="R$ 100,00" required />
+        </div>
+
+        <button class="btn btn-danger" type="reset">Limpar</button>
+        <button class="btn btn-primary" type="submit">Cadastrar!</button>
+    </form>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

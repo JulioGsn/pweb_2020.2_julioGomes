@@ -4,3 +4,7 @@ INSERT INTO clientes (nome, email, genero, endereco, cep) VALUES ('Pedro Álvare
 INSERT INTO clientes (nome, email, genero, endereco, cep) VALUES ('Tarsila do Amaral', 'tarsila@abaporu.br', 'Não Informado', 'Rua dos bobos N° 0', '00000002');
 INSERT INTO clientes (nome, email, genero, endereco, cep) VALUES ('Oscar Niemeyer', 'obras@niemeyer.br', 'Não Informado', 'Rua dos bobos N° 0', '00000003');
 INSERT INTO clientes (nome, email, genero, endereco, cep) VALUES ('Joaquim Maria Machado de Assis', 'machado@assis.com', 'Masculino', 'Rua dos bobos N° 0', '00000004');
+
+INSERT INTO produtos (nome, marca, altura, largura, profundidade, peso, preco) VALUES ('creolina', 'Pearson', '10', '10', '10', '100', '8.56');
+INSERT INTO produtos (nome, marca, altura, largura, profundidade, peso, preco) VALUES ('vivedium', 'Ceva', '10', '10', '10', '100', '418.90');
+INSERT INTO produtos (nome, marca, altura, largura, profundidade, peso, preco) VALUES ('monovin e bravet', 'Bravet', '10', '10', '10', '100', '22.30');
