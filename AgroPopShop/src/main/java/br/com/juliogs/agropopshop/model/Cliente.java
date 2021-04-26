@@ -1,12 +1,16 @@
 package br.com.juliogs.agropopshop.model;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -29,6 +33,10 @@ public class Cliente implements Serializable {
     private String genero;
     private String endereco;
     private String cep;
+
+    @Column(nullable = false)
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
+    private LocalDate dataCadastro = LocalDate.now();
 
     public Long getId() {
         return id;
@@ -76,5 +84,13 @@ public class Cliente implements Serializable {
 
     public void setCep(String cep) {
         this.cep = cep;
+    }
+
+    public LocalDate getDataCadastro() {
+        return dataCadastro;
+    }
+
+    public void setDataCadastro(LocalDate dataCadastro) {
+        this.dataCadastro = dataCadastro;
     }
 }

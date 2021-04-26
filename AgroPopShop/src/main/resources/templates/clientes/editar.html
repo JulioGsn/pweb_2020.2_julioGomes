@@ -28,20 +28,20 @@
                     <p>Gênero</p>
                     <div class="form-check">
                         <input type="radio" th:field="*{genero}" class="form-check-input" value="Masculino" required />
-                        <label class="form-check-label" for="flexRadioDefault1">
+                        <label class="form-check-label" for="">
                             Masculino
                         </label>
                     </div>
                     <div class="form-check">
                         <input type="radio" th:field="*{genero}" class="form-check-input" value="Feminino" required />
-                        <label class="form-check-label" for="flexRadioDefault1">
+                        <label class="form-check-label" for="">
                             Feminino
                         </label>
                     </div>
                     <div class="form-check">
-                        <input type="radio" th:field="*{genero}" class="form-check-input" value=" Não Informado"
+                        <input type="radio" th:field="*{genero}" class="form-check-input" value="Não Informado"
                             required />
-                        <label class="form-check-label" for="flexRadioDefault1">
+                        <label class="form-check-label" for="">
                             Não Informado
                         </label>
                     </div>
@@ -49,14 +49,18 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <label for="">Endereço</label>
                         <input type="text" th:field="*{endereco}" class="form-control" placeholder="Rua dos bobos N° 0"
                             required />
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <label for="">CEP</label>
                         <input type="text" th:field="*{cep}" class="form-control" placeholder="0000000" required />
+                    </div>
+                    <div class="col-md-4">
+                        <label for="">Data de Cadastro</label>
+                        <input type="text" th:field="*{dataCadastro}" class="form-control" readonly required />
                     </div>
                 </div>
 
