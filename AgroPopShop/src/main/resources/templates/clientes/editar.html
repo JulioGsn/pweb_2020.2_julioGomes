@@ -1,47 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AgroPopShop - Juliogs</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
-        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-</head>
+<head th:replace="fragments/headtags"></head>
 
 <body>
 
-    <h1>Hello, world! editar</h1>
+    <div th:replace="fragments/header :: header"></div>
 
-    <form class="form" method="POST" th:object="${cliente}" th:action="@{/clientes/editar/{id}(id=${cliente.id})}">
-        <div class="form-group">
-            <label for="">Nome</label>
-            <input type="text" th:field="*{nome}" class="form-control" placeholder="Fulano Cicra" required />
-            <label for="">E-mail</label>
-            <input type="text" th:field="*{email}" class="form-control" placeholder="fulano@dominio.com" required />
-            <div class="input-group">
-                <label for="">Gênero</label>
-                <input type="radio" th:field="*{genero}" class="form-control" value="Masculino" required /> Masculino
-                <input type="radio" th:field="*{genero}" class="form-control" value="Feminino" required /> Feminino
-                <input type="radio" th:field="*{genero}" class="form-control" value="Não Informado" required /> Não
-                Informado
+    <div class="container">
+        <h1 class="mb-3 mt-3">Editar Cliente</h1>
+        <form class="form" method="POST" th:object="${cliente}" th:action="@{/clientes/editar/{id}(id=${cliente.id})}">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="">Nome</label>
+                        <input type="text" th:field="*{nome}" class="form-control" placeholder="Fulano Cicra"
+                            required />
+                    </div>
+                    <div class="col-md-6">
+                        <label for="">E-mail</label>
+                        <input type="text" th:field="*{email}" class="form-control" placeholder="fulano@dominio.com"
+                            required />
+                    </div>
+                </div>
+
+                <div class="input-group d-flex flex-column mt-3 mb-3">
+                    <p>Gênero</p>
+                    <div class="form-check">
+                        <input type="radio" th:field="*{genero}" class="form-check-input" value="Masculino" required />
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            Masculino
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" th:field="*{genero}" class="form-check-input" value="Feminino" required />
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            Feminino
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" th:field="*{genero}" class="form-check-input" value=" Não Informado"
+                            required />
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            Não Informado
+                        </label>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="">Endereço</label>
+                        <input type="text" th:field="*{endereco}" class="form-control" placeholder="Rua dos bobos N° 0"
+                            required />
+                    </div>
+                    <div class="col-md-6">
+                        <label for="">CEP</label>
+                        <input type="text" th:field="*{cep}" class="form-control" placeholder="0000000" required />
+                    </div>
+                </div>
+
             </div>
-            <label for="">Endereço</label>
-            <input type="text" th:field="*{endereco}" class="form-control" placeholder="Rua dos bobos N° 0" required />
-            <label for="">CEP</label>
-            <input type="text" th:field="*{cep}" class="form-control" placeholder="0000000" required />
-        </div>
+            <hr>
+            <div class="d-flex justify-content-end">
+                <button class="btn btn-danger mr-3" type="reset">Limpar</button>
+                <button class="btn btn-primary" type="submit">Atualizar!</button>
+            </div>
+        </form>
+    </div>
 
-        <button class="btn btn-danger" type="reset">Limpar</button>
-        <button class="btn btn-primary" type="submit">Atualizar!</button>
-    </form>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
-        crossorigin="anonymous"></script>
+    <div th:replace="fragments/footer"></div>
 
 </body>
 
