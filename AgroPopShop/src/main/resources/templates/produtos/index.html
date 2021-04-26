@@ -1,42 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+<head th:replace="fragments/headtags"></head>
 
 <body>
-    <h1>produtos</h1>
-    <table class="table table-striped table-hover">
-        <tr>
-            <th>ID</th>
-            <th>Nome</th>
-            <th>Marca</th>
-            <th>Altura</th>
-            <th>Largura</th>
-            <th>Profundidade</th>
-            <th>Peso</th>
-            <th>Preço</th>
-            <th>Ações</th>
-        </tr>
-        <tr th:each="produto: ${produtos}">
-            <td th:text="${produto.id}"></td>
-            <td th:text="${produto.nome}"></td>
-            <td th:text="${produto.marca}"></td>
-            <td th:text="${produto.altura}"></td>
-            <td th:text="${produto.largura}"></td>
-            <td th:text="${produto.profundidade}"></td>
-            <td th:text="${produto.peso}"></td>
-            <td th:text="${produto.preco}"></td>
 
-            <td>
-                <a th:href="@{/produtos/editar/{id}(id=${produto.id})}">Editar</a>
-                <a th:href="@{/produtos/remover/{id}(id=${produto.id})}">Remover</a>
-            </td>
-        </tr>
-    </table>
+    <div th:replace="fragments/header :: header"></div>
+    <div class="container">
+
+        <div class="page-title mt-4 mb-4 d-flex justify-content-between align-items-center">
+            <h1>Produtos</h1>
+            <a href="/produtos/adicionar" class="btn btn-primary">Novo Produto</a>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-striped table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Marca</th>
+                        <th>Altura</th>
+                        <th>Largura</th>
+                        <th>Profundidade</th>
+                        <th>Peso</th>
+                        <th>Preço</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="produto: ${produtos}">
+                        <td th:text="${produto.id}"></td>
+                        <td th:text="${produto.nome}"></td>
+                        <td th:text="${produto.marca}"></td>
+                        <td th:text="${produto.altura}"></td>
+                        <td th:text="${produto.largura}"></td>
+                        <td th:text="${produto.profundidade}"></td>
+                        <td th:text="${produto.peso}"></td>
+                        <td th:text="${produto.preco}"></td>
+
+                        <td>
+                            <a th:href="@{/produtos/editar/{id}(id=${produto.id})}">Editar</a>
+                            <a th:href="@{/produtos/remover/{id}(id=${produto.id})}">Remover</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div th:replace="fragments/footer"></div>
+
 </body>
 
 </html>

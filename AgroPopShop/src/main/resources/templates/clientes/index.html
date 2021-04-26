@@ -1,39 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+<head th:replace="fragments/headtags"></head>
 
 <body>
-    <h1>Clientes</h1>
-    <table class="table table-striped table-hover">
-        <tr>
-            <th>ID</th>
-            <th>Nome completo</th>
-            <th>E-mail</th>
-            <th>Gênero</th>
-            <th>Endereço</th>
-            <th>CEP</th>
-            <th>Ações</th>
-        </tr>
-        <tr th:each="cliente: ${clientes}">
-            <td th:text="${cliente.id}"></td>
-            <td th:text="${cliente.nome}"></td>
-            <td>
-                <a th:href="'mailto:'+${cliente.email}" th:text="${cliente.email}"></a>
-            </td>
-            <td th:text="${cliente.genero}"></td>
-            <td th:text="${cliente.endereco}"></td>
-            <td th:text="${cliente.cep}"></td>
-            <td>
-                <a th:href="@{/clientes/editar/{id}(id=${cliente.id})}">Editar</a>
-                <a th:href="@{/clientes/remover/{id}(id=${cliente.id})}">Remover</a>
-            </td>
-        </tr>
-    </table>
+
+    <div th:replace="fragments/header :: header"></div>
+
+    <div class="container">
+
+        <div class="page-title mt-4 mb-4 d-flex justify-content-between align-items-center">
+            <h1>Clientes</h1>
+            <a href="/clientes/adicionar" class="btn btn-primary">Novo Cliente</a>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome completo</th>
+                        <th>E-mail</th>
+                        <th>Gênero</th>
+                        <th>Endereço</th>
+                        <th>CEP</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="cliente: ${clientes}">
+                        <td th:text="${cliente.id}"></td>
+                        <td th:text="${cliente.nome}"></td>
+                        <td>
+                            <a th:href="'mailto:'+${cliente.email}" th:text="${cliente.email}"></a>
+                        </td>
+                        <td th:text="${cliente.genero}"></td>
+                        <td th:text="${cliente.endereco}"></td>
+                        <td th:text="${cliente.cep}"></td>
+                        <td>
+                            <a th:href="@{/clientes/editar/{id}(id=${cliente.id})}">Editar</a>
+                            <a th:href="@{/clientes/remover/{id}(id=${cliente.id})}">Remover</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <div th:replace="fragments/footer"></div>
 </body>
 
 </html>
