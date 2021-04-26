@@ -24,6 +24,7 @@
                         <th>Gênero</th>
                         <th>Endereço</th>
                         <th>CEP</th>
+                        <th>Data cadastro</th>
                         <th>Ações</th>
                     </tr>
                 </thead>
@@ -37,6 +38,7 @@
                         <td th:text="${cliente.genero}"></td>
                         <td th:text="${cliente.endereco}"></td>
                         <td th:text="${cliente.cep}"></td>
+                        <td th:text="${#temporals.format(cliente.dataCadastro, 'dd/MM/yyyy')}"></td>
                         <td>
                             <a th:href="@{/clientes/editar/{id}(id=${cliente.id})}">Editar</a>
                             <a th:href="@{/clientes/remover/{id}(id=${cliente.id})}">Remover</a>
