@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head th:replace="fragments/headtags"></head>
+
+<body>
+
+    <div th:replace="fragments/header :: header"></div>
+
+    <div class="container">
+        <h1 class="mb-3 mt-3">Cadastrar Dependente</h1>
+        <form class="form" method="POST" th:object="${dependente}" th:action="@{/dependentes/{idCliente}/adicionar">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="">Nome</label>
+                        <input type="text" th:field="*{nome}" class="form-control" placeholder="Fulano Cicra"
+                            required />
+                    </div>
+                </div>
+
+                <div class="input-group d-flex flex-column mt-3 mb-3">
+                    <p>Gênero</p>
+                    <div class="form-check">
+                        <input type="radio" th:field="*{genero}" class="form-check-input" value="Masculino" required />
+                        <label class="form-check-label" for="">
+                            Masculino
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" th:field="*{genero}" class="form-check-input" value="Feminino" required />
+                        <label class="form-check-label" for="">
+                            Feminino
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" th:field="*{genero}" class="form-check-input" value="Não Informado"
+                            required />
+                        <label class="form-check-label" for="">
+                            Não Informado
+                        </label>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <label for="">Data de nascimento</label>
+                        <input type="date" th:field="*{dataNascimento}" class="form-control" required />
+                    </div>
+                </div>
+
+            </div>
+            <hr>
+            <div class="d-flex justify-content-end">
+                <button class="btn btn-danger mr-3" type="reset">Limpar</button>
+                <button class="btn btn-primary" type="submit">Cadastrar!</button>
+            </div>
+        </form>
+    </div>
+
+    <div th:replace="fragments/footer"></div>
+
+</body>
+
+</html>

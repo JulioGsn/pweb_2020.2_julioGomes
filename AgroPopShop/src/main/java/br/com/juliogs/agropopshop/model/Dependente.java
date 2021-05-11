@@ -8,8 +8,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import lombok.AllArgsConstructor;
@@ -20,8 +24,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Entity
-@Table(name = "clientes")
-public class Cliente implements Serializable {
+@Table(name = "dependentes")
+public class Dependente implements Serializable {
     private static final long serialVersionUID = -4665511553732190877L;
 
     @Id
@@ -29,14 +33,16 @@ public class Cliente implements Serializable {
     private Long id;
 
     private String nome;
-    private String email;
     private String genero;
-    private String endereco;
-    private String cep;
 
     @Column(nullable = false)
-    @DateTimeFormat(pattern = "dd/MM/yyyy")
-    private LocalDate dataCadastro = LocalDate.now();
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate dataNascimento;
+
+    @ManyToOne
+    @JoinColumn(name = "cliente_id", nullable = false)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private Cliente cliente;
 
     public Long getId() {
         return id;
@@ -54,14 +60,6 @@ public class Cliente implements Serializable {
         this.nome = nome;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public String getGenero() {
         return genero;
     }
@@ -70,28 +68,20 @@ public class Cliente implements Serializable {
         this.genero = genero;
     }
 
-    public String getEndereco() {
-        return endereco;
+    public LocalDate getDataNascimento() {
+        return dataNascimento;
     }
 
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
+    public void setDataNascimento(LocalDate dataNascimento) {
+        this.dataNascimento = dataNascimento;
     }
 
-    public String getCep() {
-        return cep;
+    public Cliente getCliente() {
+        return cliente;
     }
 
-    public void setCep(String cep) {
-        this.cep = cep;
-    }
-
-    public LocalDate getDataCadastro() {
-        return dataCadastro;
-    }
-
-    public void setDataCadastro(LocalDate dataCadastro) {
-        this.dataCadastro = dataCadastro;
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 
 }
