@@ -3,6 +3,17 @@
 
 <head th:replace="fragments/headtags"></head>
 
+<style>
+    .product-list {
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    .product-list .product-item:not(:last-child) {
+        margin-right: 20px;
+    }
+</style>
+
 <body>
 
     <div th:replace="fragments/header :: header"></div>
@@ -11,6 +22,23 @@
         <h1 class="display-4">Olá. Seja bem-vindo!!!</h1>
         <p class="lead">Estamos em desenvolvimento. Agro é tech, agro é pop, agro é tudo!</p>
         <hr class="my-4">
+    </div>
+
+    <div class="container">
+
+        <div class="product-list">
+
+            <div class="card product-item" style="width: 18rem;" th:each="produto: ${produtos}">
+                <img class="card-img-top" src="/default-prod.png" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title" th:text="${produto.nome}"></h5>
+                    <p class="card-text" th:text="${produto.marca}"></p>
+                    <p class="card-text" th:text="${#numbers.formatDecimal(produto.preco, 1, 'DEFAULT', 2, 'DEFAULT')}"></p>
+                    <!-- <p class="card-text" th:text="${#numbers.formatCurrency(produto.preco)}"></p> -->
+                    <a href="#" class="btn btn-success">Comprar</a>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div th:replace="fragments/footer"></div>
