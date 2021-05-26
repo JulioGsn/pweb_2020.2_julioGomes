@@ -25,4 +25,9 @@ public class HomeController {
         return mav;
     }
 
+    @GetMapping("/contato")
+    public String contato() {
+        return "contato";
+    }
+
 }
