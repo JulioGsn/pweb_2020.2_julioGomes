@@ -31,7 +31,10 @@ public class Cliente implements Serializable {
     private String nome;
     private String email;
     private String genero;
-    private String endereco;
+    private String logradouro;
+    private String numero;
+    private String cidade;
+    private String uf;
     private String cep;
 
     @Column(nullable = false)
@@ -70,14 +73,6 @@ public class Cliente implements Serializable {
         this.genero = genero;
     }
 
-    public String getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
-    }
-
     public String getCep() {
         return cep;
     }
@@ -92,6 +87,38 @@ public class Cliente implements Serializable {
 
     public void setDataCadastro(LocalDate dataCadastro) {
         this.dataCadastro = dataCadastro;
+    }
+
+    public String getLogradouro() {
+        return logradouro;
+    }
+
+    public void setLogradouro(String logradouro) {
+        this.logradouro = logradouro;
+    }
+
+    public String getNumero() {
+        return numero;
+    }
+
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
+
+    public String getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+
+    public String getUf() {
+        return uf;
+    }
+
+    public void setUf(String uf) {
+        this.uf = uf;
     }
 
 }
