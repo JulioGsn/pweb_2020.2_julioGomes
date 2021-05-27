@@ -48,21 +48,41 @@
 
                 </div>
 
-                <div class="row">
-                    <div class="col-md-4">
-                        <label for="">Endereço</label>
-                        <input type="text" th:field="*{endereco}" class="form-control" placeholder="Rua dos bobos N° 0"
-                            required />
-                    </div>
+
+
+                <p>Endereço</p>
+                <hr>
+                <div class="row mb-3">
                     <div class="col-md-4">
                         <label for="">CEP</label>
-                        <input type="text" th:field="*{cep}" class="form-control" placeholder="0000000" required />
+                        <input type="text" th:field="*{cep}" id="cep" class="form-control" placeholder="0000000"
+                            required />
                     </div>
                     <div class="col-md-4">
                         <label for="">Data de Cadastro</label>
                         <input type="text" th:field="*{dataCadastro}" class="form-control" readonly required />
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <label for="">Logradouro</label>
+                        <input type="text" id="logradouro" th:field="*{logradouro}" class="form-control"
+                            placeholder="Rua dos bobos N° 0" required />
+                    </div>
+                    <div class="col-md-1">
+                        <label for="">Número</label>
+                        <input type="text" class="form-control" th:field="*{numero}" required />
+                    </div>
+                    <div class="col-md-3">
+                        <label for="">Cidade</label>
+                        <input type="text" id="cidade" class="form-control" th:field="*{cidade}" required />
+                    </div>
+                    <div class="col-md-1">
+                        <label for="">UF</label>
+                        <input type="text" id="uf" class="form-control" th:field="*{uf}" required />
+                    </div>
+                </div>
+
 
             </div>
             <hr>

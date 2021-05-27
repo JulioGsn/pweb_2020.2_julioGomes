@@ -22,7 +22,10 @@
                         <th>Nome completo</th>
                         <th>E-mail</th>
                         <th>Gênero</th>
-                        <th>Endereço</th>
+                        <th>Logradouro</th>
+                        <th>N°</th>
+                        <th>Cidade</th>
+                        <th>UF</th>
                         <th>CEP</th>
                         <th>Data cadastro</th>
                         <th>Ações</th>
@@ -36,7 +39,10 @@
                             <a th:href="'mailto:'+${cliente.email}" th:text="${cliente.email}"></a>
                         </td>
                         <td th:text="${cliente.genero}"></td>
-                        <td th:text="${cliente.endereco}"></td>
+                        <td th:text="${cliente.logradouro}"></td>
+                        <td th:text="${cliente.numero}"></td>
+                        <td th:text="${cliente.cidade}"></td>
+                        <td th:text="${cliente.uf}"></td>
                         <td th:text="${cliente.cep}"></td>
                         <td th:text="${#temporals.format(cliente.dataCadastro, 'dd/MM/yyyy')}"></td>
                         <td>
